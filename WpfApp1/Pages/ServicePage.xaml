@@ -1,0 +1,39 @@
+﻿<Page x:Class="WpfApp1.Pages.ServicePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ServicePage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="407*"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0"  x:Name="dgServiceEdit" Grid.Column="0" AutoGenerateColumns="False" FontFamily="Arial Narrow">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Название услуги" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*"  Header="Цена" Binding="{Binding Price}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*"  Header="Код Услуги" Binding="{Binding Code}"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="*" Header="Изменить">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnForEditService" Content="Изменить" Click="BtnForEditService_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*" Header="Удалить">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnForDeleteService" Content="Удалить" Click="BtnForDeleteService_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Background="#FF498C51" Grid.Row="1" Width="175" FontFamily="Comic Sans MS" x:Name="AddBTN" Click="AddBTN_Click">Добавить</Button>
+    </Grid>
+</Page>
